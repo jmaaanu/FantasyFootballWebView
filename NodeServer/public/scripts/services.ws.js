@@ -13,14 +13,16 @@
             //var wsRootUrl = 'http://82.243.41.235/app.php';
             //var wsRootUrl = 'http://rdvbb.ddns.net/app.php';
             //'http://tramli.freeboxos.fr/app.php/index'
-            var wsRootUrl = 'http://192.168.2.2:8080/app.php';
+            // var wsRootUrl = 'http://192.168.2.2:8080/app.php';
             // var wsRootUrl = 'http://tramli.freeboxos.fr/app.php';
+
+            var wsRootUrl = 'http://localhost:8080/FantasyFootball2/web/app_dev.php/ws';
 
             //$http.defaults.useXDomain = true;
             //$http.defaults.withCredentials = true;
             delete $http.defaults.headers.common['X-Requested-With'];
-            $http.defaults.headers.common['Accept'] = 'application/json';
-            $http.defaults.headers.common['Content-Type'] = 'application/json';
+            //$http.defaults.headers.common['Accept'] = 'application/json';
+            //$http.defaults.headers.common['Content-Type'] = 'application/json';
 
             /** Requete qui retourne un tableau [...,...,] sous la forme d'une promesse
              * Promesse qui contient le tableau si elle est resolue ou un message d'erreur si elle echoue

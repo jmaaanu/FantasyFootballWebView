@@ -28,7 +28,7 @@
               console.log(error); // #TODO Gestion des erreurs a faire
             });
 
-            //! Chagement de l'edition courrantes
+            //! Chagement de l'edition courante
             $scope.changeCurrentEdition = function(edition) {
                 $rootScope.currentEdition = $scope.editions.getByEdition(edition);
                 $PARAM.editions.setCurrent($rootScope.currentEdition);
@@ -59,5 +59,9 @@
                 });
             };
         }
-    ]);
+        ]);
+
+    function NavBarCtrl($scope) {
+        $scope.isCollapsed = true;
+    }
 })();

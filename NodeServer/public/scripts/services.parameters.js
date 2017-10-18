@@ -98,7 +98,16 @@
             
             if (!Editions.prototype.getByEdition) {
                 Editions.prototype.getByEdition = function getByEdition(ed) {
-                    var itm = this._array[ed - 1];
+                    //var itm = this._array[ed - 1];
+
+                    function CallbackFunctionToFindEditionById(ed) {
+                        if (ed.id === this) {
+                            return ed;
+                        }
+                    }
+
+                    var itm = this._array.find(CallbackFunctionToFindEditionById, ed);
+
                     return new Edition(itm);
                 };
             }
@@ -168,7 +177,7 @@
                         var d = $q.defer();
                         
                         var theEdition = window.localStorage.getItem('currentEdition');
-                        if (!theEdition) {
+                        if (!theEdition || theEdition === 'undefined') {
                             _ResetCurrent().then(function (data) {
                                 d.resolve(data);
                             }, function (error) {
