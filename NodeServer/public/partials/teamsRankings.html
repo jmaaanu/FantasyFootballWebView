@@ -3,19 +3,32 @@
     <table class="table table-striped" fixed-header>
         <thead>
             <tr>
-                <th pe-translate="rankings.teams.header.index">index</th>
-                <th pe-translate="rankings.teams.header.name">Name</th>
-                <th ng-repeat="h in headers">{{'rankings.teams.header.' + h | peTranslate}}</th>
+                <th class="col-md-1" pe-translate="rankings.teams.header.index">index</th>
+                <th class="col-md-{{11 - headers.length}}" pe-translate="rankings.teams.header.name">Name</th>
+                <th class="col-md-1" ng-repeat="h in headers">{{'rankings.teams.header.' + h | peTranslate}}</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="item in rankingsDatas">
-                <td>{{$index + 1}}</td>
-                <td><a ng-click="showCoach(item.id);" class="clickable">{{item.name}}</a></td>
-                <td ng-repeat="h in headers">{{valueOf(item, h)}}</td>
+                <td class="col-md-1">{{$index + 1}}</td>
+                <td class="col-md-{{11 - headers.length}}"><a ng-click="showCoach(item.id);" class="clickable">{{item.name}}</a></td>
+                <td class="col-md-1" ng-repeat="h in headers">{{valueOf(item, h)}}</td>
             </tr>
         </tbody>
         <tfoot>
         </tfoot>
     </table>
 </div>
+
+<style>
+    th, td {
+        text-align: center
+    }
+
+    td.cut {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+</style>
