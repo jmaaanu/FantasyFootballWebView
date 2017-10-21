@@ -16,7 +16,8 @@
             // var wsRootUrl = 'http://192.168.2.2:8080/app.php';
             // var wsRootUrl = 'http://tramli.freeboxos.fr/app.php';
 
-            var wsRootUrl = 'http://localhost:8080/FantasyFootball2/web/app_dev.php/ws';
+            // var wsRootUrl = 'http://localhost:8080/FantasyFootball2/web/app_dev.php/ws';
+            var wsRootUrl = 'http://51.15.207.35:8080/app.php/ws';
 
             //$http.defaults.useXDomain = true;
             //$http.defaults.withCredentials = true;

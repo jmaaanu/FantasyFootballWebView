@@ -15,7 +15,7 @@
     .controller('coaches', ['$scope', '$rootScope', '$routeParams', '$location', '$RDVBB_WS',
         function($scope, $rootScope, $routeParams, $location, $RDVB_WS) {
             $scope.pageClass = 'page-coach';
-            $scope.orderByField = 'name';
+            $scope.orderByField = $rootScope.currentEdition.hasTeam() ? 'coachTeamName' : 'name';
             $scope.reverseSort = false;
 
             $RDVB_WS.coach.list($rootScope.currentEdition.edition()).then(function(data) {
@@ -116,7 +116,6 @@
             function load() {
                 $RDVB_WS.matchs.byCoach(currentCoachId).then(function(data) {
                     $scope.matchsList = data;
-                    console.log(JSON.stringify(data));
                 });
             }
 

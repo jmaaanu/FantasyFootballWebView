@@ -8,24 +8,19 @@
                 <span class="badge">{{numberOfCoachs}}</span>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12">
-                <span pe-translate="coaches.filter">Filtre :</span><input type="text" ng-model="search.coach" placeholder="{{'coaches.filter.holder' | peTranslate}}" />
-            </div>
-        </div>
     </div>
     <table class="table table-striped" fixed-header>
         <thead>
             <tr>
-                <th><a ng-click="orderByField='name'; reverseSort = !reverseSort;"><span pe-translate="coaches.name">Nom</span>&nbsp;<span class="glyphicon" ng-show="orderByField=='name'" ng-class="{'glyphicon-arrow-down': reverseSort==true, 'glyphicon-arrow-up': reverseSort==false}"></span></a></th>
                 <th><a ng-click="orderByField='coachTeamName'; reverseSort = !reverseSort;" ng-show="currentEdition.hasTeam()"><span pe-translate="coaches.team">Triplette</span>&nbsp;<span class="glyphicon" ng-show="orderByField=='coachTeamName'" ng-class="{'glyphicon-arrow-down': reverseSort==true, 'glyphicon-arrow-up': reverseSort==false}"></span></a></th>
+                <th><a ng-click="orderByField='name'; reverseSort = !reverseSort;"><span pe-translate="coaches.name">Nom</span>&nbsp;<span class="glyphicon" ng-show="orderByField=='name'" ng-class="{'glyphicon-arrow-down': reverseSort==true, 'glyphicon-arrow-up': reverseSort==false}"></span></a></th>
                 <th><a ng-click="orderByField='raceName'; reverseSort = !reverseSort;"><span pe-translate="coaches.race">Race joué</span>&nbsp;<span class="glyphicon" ng-show="orderByField=='raceName'" ng-class="{'glyphicon-arrow-down': reverseSort==true, 'glyphicon-arrow-up': reverseSort==false}"></span></a></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="(key, value) in coachesList  | orderObjectBy : orderByField : reverseSort | filter: search">
-                <td><a ng-click="showCoach(value.id);" class="clickable"><strong>{{value.name}}</strong></a></td>
                 <td><a ng-click="showTeam(value.coachTeamId);" class="clickable" ng-show="currentEdition.hasTeam()">{{value.coachTeamName}}</a></td>
+                <td><a ng-click="showCoach(value.id);" class="clickable"><strong>{{value.name}}</strong></a></td>
                 <td><span>{{value.raceName}}</span></td>
             </tr>
         </tbody>

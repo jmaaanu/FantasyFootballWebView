@@ -186,8 +186,20 @@
                 var comparator;
                 var reducedA = field.split('.').reduce(index, a).toUpperCase();
                 var reducedB = field.split('.').reduce(index, b).toUpperCase();
+
                 if (reducedA === reducedB) {
                     comparator = 0;
+
+                    reducedA = 'name'.split('.').reduce(index, a).toUpperCase();
+                    reducedB = 'name'.split('.').reduce(index, b).toUpperCase();
+
+                    if (reducedA === reducedB) {
+                        comparator = 0;
+                    } else {
+                        comparator = (reducedA > reducedB ? 1 : -1);
+                    }
+
+
                 } else {
                     comparator = (reducedA > reducedB ? 1 : -1);
                 }
